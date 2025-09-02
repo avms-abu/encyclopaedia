@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVMS Encyclopaedia Veterinariae - Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c5e92;
+            --secondary: #4caf50;
+            --accent: #ff9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #444;
+            --text-light: #777;
+            --border: #eaeaea;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #234a75;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #3d8b40;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: #e68a00;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav a.active {
+            color: var(--primary);
+        }
+
+        .main-nav a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(44, 94, 146, 0.9), rgba(44, 94, 146, 0.85)), url('img/blu-family.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Resources Page Styles */
+        .resources-hero {
+            background: linear-gradient(rgba(44, 94, 146, 0.85), rgba(76, 175, 80, 0.8)), url('img/blu-family.jpg') center/cover;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .resources-hero h1 {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .resources-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .levels-section {
+            background: white;
+            padding: 60px 0;
+        }
+
+        .levels-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .level-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .level-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .level-card .level-name {
+            display: block;
+            text-align: center;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .semester-buttons {
+            display: grid;
+            gap: 15px;
+        }
+
+        .semester-btn {
+            display: block;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .semester-btn:hover {
+            background: #1e4875;
+            transform: translateY(-3px);
+        }
+
+        .semester-btn i {
+            margin-right: 10px;
+        }
+
+        .semester-btn.second-semester {
+            background: var(--secondary);
+        }
+
+        .semester-btn.second-semester:hover {
+            background: #3d8b40;
+        }
+
+        .courses-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .course-code {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .course-resources {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .course-resources li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .course-resources li:last-child {
+            border-bottom: none;
+        }
+
+        .course-resources a {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: var(--text);
+        }
+
+        .course-resources a:hover {
+            color: var(--primary);
+        }
+
+        .course-resources a:hover i {
+            transform: translateX(3px);
+        }
+
+        .course-resources a i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-levels {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .back-to-levels:hover {
+            color: var(--secondary);
+        }
+
+        .back-to-levels i {
+            margin-right: 8px;
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 60px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .footer-logo p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .footer-description {
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact ul {
+            list-style: none;
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        .admin-login {
+            display: inline-block;
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .admin-login:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">AV</div>
+                <div class="logo-text">
+                    <h1>AVMS</h1>
+                    <span>Encyclopaedia Veterinariae</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                    <li><a href="about.html">About AVMS</a></li>
+                    <li><a href="news.html">News & Updates</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="resources-hero">
+            <div class="container">
+                <h1>Academic Resources</h1>
+                <p>Browse our comprehensive collection organized by level and semester</p>
+            </div>
+        </section>
+
+        <section class="levels-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Select Academic Level</h2>
+                    <p>Choose your level and semester to access course resources</p>
+                </div>
+
+                <div class="levels-container">
+                    <div class="level-card">
+                        <h3>100 Level</h3>
+                        <span class="level-name">Pre DVM</span>
+                        <div class="semester-buttons">
+                            <a href="100l.html#first-semester" class="semester-btn">
+                                <i class="fas fa-book-open"></i> First Semester
+                            </a>
+                            <a href="100l.html#second-semester" class="semester-btn second-semester">
+                                <i class="fas fa-book"></i> Second Semester
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <h3>200 Level</h3>
+                        <span class="level-name">DVM I</span>
+                        <div class="semester-buttons">
+                            <a href="200l.html#first-semester" class="semester-btn">
+                                <i class="fas fa-book-open"></i> First Semester
+                            </a>
+                            <a href="200l.html#second-semester" class="semester-btn second-semester">
+                                <i class="fas fa-book"></i> Second Semester
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <h3>300 Level</h3>
+                        <span class="level-name">DVM II</span>
+                        <div class="semester-buttons">
+                            <a href="300l.html#first-semester" class="semester-btn">
+                                <i class="fas fa-book-open"></i> First Semester
+                            </a>
+                            <a href="300l.html#second-semester" class="semester-btn second-semester">
+                                <i class="fas fa-book"></i> Second Semester
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <h3>400 Level</h3>
+                        <span class="level-name">DVM III</span>
+                        <div class="semester-buttons">
+                            <a href="400l.html#first-semester" class="semester-btn">
+                                <i class="fas fa-book-open"></i> First Semester
+                            </a>
+                            <a href="400l.html#second-semester" class="semester-btn second-semester">
+                                <i class="fas fa-book"></i> Second Semester
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <h3>500 Level</h3>
+                        <span class="level-name">DVM IV</span>
+                        <div class="semester-buttons">
+                            <a href="500l.html#first-semester" class="semester-btn">
+                                <i class="fas fa-book-open"></i> First Semester
+                            </a>
+                            <a href="500l.html#second-semester" class="semester-btn second-semester">
+                                <i class="fas fa-book"></i> Second Semester
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <h3>600 Level</h3>
+                        <span class="level-name">DVM V</span>
+                        <div class="semester-buttons">
+                            <a href="600l.html" class="semester-btn">
+                                <i class="fas fa-book-open"></i> First Semester
+                            </a>
+                            <a href="600l.html" class="semester-btn second-semester">
+                                <i class="fas fa-book"></i> Second Semester
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="level-card">
+                        <h3>Additional Materials</h3>
+                        <span class="level-name">More Materials</span>
+                        <div class="semester-buttons">
+                            <a href="extras.html" class="semester-btn">
+                                <i class="fas fa-book-open"></i> More...
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="logo-img">AV</div>
+                        <div>
+                            <h3>AVMS Encyclopaedia Veterinariae</h3>
+                            <p>Faculty of Veterinary Medicine<br>Ahmadu Bello University, Zaria</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">A comprehensive digital repository for veterinary students at ABU Zaria, providing access to academic resources, handouts, textbooks, and past questions.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About AVMS</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Information</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> avmsabuzaria100@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Faculty of Veterinary Medicine, ABU, Zaria</li>
+                        <li><i class="fas fa-phone"></i> +234 902 233 4102</li>
+                    </ul>
+                    <div class="bank-details-footer">
+                        <h4>Bank Account</h4>
+                        <p><strong>First Bank of Nigeria</strong></p>
+                        <p>Acc. No: <strong>3068708848</strong></p>
+                        <p>Acc. Name: <strong>Association of Veterinary Medical Students ABU Zaria</strong></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Association of Veterinary Medical Students (AVMS), ABU Zaria Chapter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

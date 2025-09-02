@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - AVMS Encyclopaedia Veterinariae</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c5e92;
+            --secondary: #4caf50;
+            --accent: #ff9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #444;
+            --text-light: #777;
+            --border: #eaeaea;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #234a75;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav a.active {
+            color: var(--primary);
+        }
+
+        .main-nav a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Page Hero Section */
+        .page-hero {
+            background: linear-gradient(rgba(44, 94, 146, 0.85), rgba(76, 175, 80, 0.8)), url('img/dean-dean.jpg') center/cover;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .page-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* News Section */
+        .news-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .news-sidebar {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px; /* Adjust based on header height */
+        }
+        
+        .news-sidebar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .news-sidebar ul {
+            list-style: none;
+        }
+        
+        .news-sidebar li a {
+            display: block;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .news-sidebar li:last-child a {
+            border-bottom: none;
+        }
+        
+        .news-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .news-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .news-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .news-card .news-date {
+            display: block;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .news-card ul {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+        
+        /* Footer Styles */
+        .main-footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 60px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-info {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .footer-logo p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .footer-description {
+            font-size: 0.95rem;
+        }
+        
+        .footer-links h4,
+        .footer-contact h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact ul {
+            list-style: none;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 4px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+            .news-sidebar {
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav ul {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            .page-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">AV</div>
+                <div class="logo-text">
+                    <h1>AVMS</h1>
+                    <span>Encyclopaedia Veterinariae</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About AVMS</a></li>
+                    <li><a href="news.html" class="active">News & Updates</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>News & Updates</h1>
+                <p>Stay up-to-date with the latest activities and announcements from AVMS.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container news-container">
+                <div class="news-sidebar">
+                    <h3>Recent News</h3>
+                    <ul>
+                        <li><a href="#vet-week">Junaidu Kabir Vet Week</a></li>
+                        <li><a href="#call-for-articles">Call for Articles</a></li>
+                        <li><a href="#congress">AVMS Congress Meeting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="news-content">
+                    <div id="vet-week" class="news-card">
+                        <h3>Celebrating Junaidu Kabir Vet Week</h3>
+                        <span class="news-date">August 14, 2025</span>
+                        <p>We are delighted to announce the conclusion of this year's Vet Week, which was celebrated in honor of our outgoing Dean, <strong>Professor Junaidu Kabir</strong> from the Department of Veterinary Public Health and Preventive Medicine. The week was filled with various activities celebrating the achievements of the faculty and its students.</p>
+                        <p>We extend a warm welcome to the incoming Dean, <strong>Professor Muhammad Umaru Kawu</strong> from the Department of Veterinary Physiology, and wish him a successful tenure.</p>
+                        <p>Pictures from the event have been uploaded to our Google Drive. You can view them by clicking the link below.</p>
+                        <a href="https://drive.google.com/drive/folders/1U-bhOGArtWj-Jd9_fmDxGZ6Z6HniL1pB" class="btn btn-primary" target="_blank">View Photo Gallery</a>
+                    </div>
+
+                    <div id="call-for-articles" class="news-card">
+                        <h3>📣 Call for Articles – AVMS ABU Zaria Magazine 2025 Edition</h3>
+                        <span class="news-date">August 14, 2025</span>
+                        <p>Are you passionate about animals, science, campus life, or storytelling? This is your opportunity to get published and have your voice heard!</p>
+                        <p>The Editorial Board of AVMS ABU Zaria invites all students, alumni, and stakeholders to submit original and insightful articles for the upcoming magazine edition.</p>
+                        <h4>🖋 Suggested Topics:</h4>
+                        <ul>
+                            <li>One Health & Zoonoses</li>
+                            <li>Clinical Case Highlights</li>
+                            <li>Wildlife and Fieldwork Photo Stories</li>
+                            <li>Indigenous Animal Health Practices</li>
+                            <li>Research Projects & Summaries</li>
+                            <li>Media, Advocacy, & Vet Tech</li>
+                            <li>Vet Student Life & Campus Reflections</li>
+                            <li>Poetry, Spoken Word, and Creative Pieces</li>
+                            <li>Career Paths & Alumni Stories</li>
+                        </ul>
+                        <h4>📌 Guidelines:</h4>
+                        <ul>
+                            <li><strong>Word count:</strong> 600–1000 words (features), 200–400 words (short pieces)</li>
+                            <li><strong>Format:</strong> .docx (Word)</li>
+                            <li>Must be original (plagiarism leads to disqualification)</li>
+                            <li>Include your name, level, or graduation year</li>
+                            <li>Use clear, respectful language</li>
+                        </ul>
+                        <h4>📅 Deadline:</h4>
+                        <p>21st August 2025 – 6:00 PM (GMT)</p>
+                        <p>📤 Send submissions to: <a href="mailto:dvmbekipauls@gmail.com">dvmbekipauls@gmail.com</a></p>
+                        <p>📱 WhatsApp: <a href="https://wa.me/2348157586864">+234 815 758 6864</a></p>
+                        <blockquote>"Be bold. Be original. Be the voice of veterinary students in ABU Zaria."</blockquote>
+                        <p>Let your ideas shine in this year’s AVMS magazine! 🐾</p>
+                        <p>✍️✍️<br>Editor-in-Chief</p>
+                    </div>
+                    
+                    <div id="congress" class="news-card">
+                        <h3>AVMS Congress Meeting Announcement</h3>
+                        <span class="news-date">August 12, 2025</span>
+                        <p>Dear esteemed members of the Association of Veterinary Medical Students (AVMS), ABU, Zaria, you are cordially invited to a congress meeting.</p>
+                        <p>This meeting is convened to provide vital updates and deliberate on pressing matters affecting us all.</p>
+                        <ul>
+                            <li><strong>Date:</strong> Saturday, 16th August 2025</li>
+                            <li><strong>Time:</strong> 12:00PM</li>
+                            <li><strong>Venue:</strong> 200 Level Auditorium</li>
+                        </ul>
+                        <h4>Agenda:</h4>
+                        <ol>
+                            <li>Opening Prayers</li>
+                            <li>Opening Remark</li>
+                            <li>Reading and Adoption of Minutes from Last Congress</li>
+                            <li>Journey So Far</li>
+                            <li>IELCOM Committee Formation</li>
+                            <li>Matters Arising</li>
+                            <li>AOB (Any Other Business)</li>
+                            <li>Closing Remark</li>
+                            <li>Closing Prayer</li>
+                        </ol>
+                        <p>All members are expected to adhere strictly to the AVMS code of conduct, including proper mode of dressing and decorum. Your presence is highly important.</p>
+                        <p>Signed,<br><strong>Abubakar Adamu</strong><br>Secretary General, For AVMS President</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="logo-img">AV</div>
+                        <div>
+                            <h3>AVMS Encyclopaedia Veterinariae</h3>
+                            <p>Faculty of Veterinary Medicine<br>Ahmadu Bello University, Zaria</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">A comprehensive digital repository for veterinary students at ABU Zaria, providing access to academic resources, handouts, textbooks, and past questions.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About AVMS</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Information</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> avmsabuzaria100@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Faculty of Veterinary Medicine, ABU, Zaria</li>
+                        <li><i class="fas fa-phone"></i> +234 902 233 4102</li>
+                    </ul>
+                    <div class="bank-details-footer">
+                        <h4>Bank Account</h4>
+                        <p><strong>First Bank of Nigeria</strong></p>
+                        <p>Acc. No: <strong>3068708848</strong></p>
+                        <p>Acc. Name: <strong>Association of Veterinary Medical Students ABU Zaria</strong></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Association of Veterinary Medical Students (AVMS), ABU Zaria Chapter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('.main-nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

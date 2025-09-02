@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty of Veterinary Medicine - ABU Zaria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c5e92;
+            --secondary: #4caf50;
+            --accent: #ff9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #444;
+            --text-light: #777;
+            --border: #eaeaea;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav a.active {
+            color: var(--primary);
+        }
+
+        .main-nav a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Page Hero Section */
+        .page-hero {
+            background: linear-gradient(rgba(44, 94, 146, 0.85), rgba(76, 175, 80, 0.8)), url('https://images.unsplash.com/photo-1549247716-e41c42f0174e?ixlib=rb-4.0.3') center/cover;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .page-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* Overview Section */
+        .overview-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background-color: white;
+        }
+        
+        .overview-content {
+            flex: 2;
+        }
+        
+        .overview-image {
+            flex: 1;
+        }
+        
+        .overview-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Departments Section */
+        .departments-section {
+            background-color: #f8f9fa;
+        }
+        
+        .department-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .department-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .department-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 60px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .footer-logo p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .footer-description {
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact ul {
+            list-style: none;
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .overview-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .overview-content h2:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            .page-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">AV</div>
+                <div class="logo-text">
+                    <h1>AVMS</h1>
+                    <span>Encyclopaedia Veterinariae</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                   <li><a href="/">Home</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About AVMS</a></li>
+                    <li><a href="news.html">News & Updates</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faculty.html" class="active">Faculty</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Faculty of Veterinary Medicine</h1>
+                <p>A Ahmadu Bello University, Zaria</p>
+            </div>
+        </section>
+
+        <section class="section overview-section">
+            <div class="container overview-content">
+                <h2>Our Mission & History</h2>
+                <p>The Faculty of Veterinary Medicine, Ahmadu Bello University, Zaria, is one of the premier institutions for veterinary education in Nigeria. Our mission is to produce highly skilled veterinary professionals and conduct cutting-edge research to advance animal health and public well-being.</p>
+                <p>Since its inception, the faculty has been committed to providing a comprehensive curriculum, state-of-the-art facilities, and a supportive learning environment. We are proud of our legacy of excellence and our graduates who have made significant contributions to the field of veterinary science across the globe.</p>
+            </div>
+            <div class="overview-image">
+                <img src="https://images.unsplash.com/photo-1543666270-e4b2d909337b?ixlib=rb-4.0.3" alt="Veterinary School">
+            </div>
+        </section>
+        
+        <section class="section departments-section">
+            <div class="container section-title">
+                <h2>Our Academic Departments</h2>
+                <p>Learn more about the various departments that make up our faculty.</p>
+            </div>
+            <div class="container department-cards-container">
+                <div class="department-card">
+                    <i class="fas fa-venus-mars"></i>
+                    <h3>Department of Theriogenology and Production</h3>
+                    <p>Focuses on animal reproduction, obstetrics, and production management.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-dna"></i>
+                    <h3>Department of Veterinary Anatomy</h3>
+                    <p>Dedicated to the study of the structure of animals.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>Department of Veterinary Medicine</h3>
+                    <p>Covers the prevention, diagnosis, and treatment of animal diseases.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Department of Veterinary Microbiology</h3>
+                    <p>Studies microorganisms that affect animal health.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Department of Veterinary Parasitology and Entomology</h3>
+                    <p>Focuses on parasites and insects that impact animal health.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-vial"></i>
+                    <h3>Department of Veterinary Pathology</h3>
+                    <p>Deals with the diagnosis and study of animal diseases.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-pills"></i>
+                    <h3>Department of Veterinary Pharmacology and Toxicology</h3>
+                    <p>Covers the effects of drugs and poisons on animals.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Department of Veterinary Physiology</h3>
+                    <p>Explores the functions of the animal body and its systems.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-shield-virus"></i>
+                    <h3>Department of Veterinary Public Health and Preventive Medicine</h3>
+                    <p>Concerned with the health and well-being of the public related to animals.</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-x-ray"></i>
+                    <h3>Department of Veterinary Surgery and Radiology</h3>
+                    <p>Specialized in surgical and diagnostic imaging procedures for animals.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="logo-img">AV</div>
+                        <div>
+                            <h3>AVMS Encyclopaedia Veterinariae</h3>
+                            <p>Faculty of Veterinary Medicine<br>Ahmadu Bello University, Zaria</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">A comprehensive digital repository for veterinary students at ABU Zaria, providing access to academic resources, handouts, textbooks, and past questions.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About AVMS</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Information</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> avmsabuzaria100@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Faculty of Veterinary Medicine, ABU, Zaria</li>
+                        <li><i class="fas fa-phone"></i> +234 902 233 4102</li>
+                    </ul>
+                    <div class="bank-details-footer">
+                        <h4>Bank Account</h4>
+                        <p><strong>First Bank of Nigeria</strong></p>
+                        <p>Acc. No: <strong>3068708848</strong></p>
+                        <p>Acc. Name: <strong>Association of Veterinary Medical Students ABU Zaria</strong></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Association of Veterinary Medical Students (AVMS), ABU Zaria Chapter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('.main-nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
